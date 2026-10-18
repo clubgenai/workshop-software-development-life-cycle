@@ -16,5 +16,11 @@ Flèches ou espace pour avancer, `F` pour le plein écran, `N` pour les notes de
 
 ```bash
 git clone https://github.com/clubgenai/workshop-software-development-life-cycle.git
+cd workshop-software-development-life-cycle
 git checkout tp
+cd erp
+npm install
+npm run dev
 ```
+
+L'ERP RH (la CVthèque) s'ouvre sur http://localhost:3000. Détails, API et données : [`erp/README.md`](erp/README.md).
