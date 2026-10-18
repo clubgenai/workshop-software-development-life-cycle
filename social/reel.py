@@ -39,21 +39,21 @@ def build_page(html, W, H, fonts, top, bottom):
 html,body{{width:{W}px;height:{H}px;overflow:hidden;background:#16130F}}
 .viewport{{inset:auto!important;left:0!important;top:{band_top}px!important;width:{W}px!important;height:{stage_h}px!important;padding:0!important}}
 .controls,.notes{{display:none!important}}
-.cap{{position:fixed;left:64px;right:64px;color:#F9F9F9;font-family:Epilogue,Arial,sans-serif;z-index:99}}
-.cap.top{{top:0;height:{band_top}px;display:flex;flex-direction:column;justify-content:center;gap:14px}}
-.cap.bot{{bottom:0;height:{H - band_top - stage_h}px;display:flex;align-items:center;justify-content:space-between;gap:24px}}
-.cap .k{{font:500 22px/1 'IBM Plex Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:#FFB95C}}
-.cap .h{{font:900 54px/1.02 Epilogue,Arial,sans-serif;letter-spacing:-.02em}}
-.cap .b{{font:500 26px/1.3 'IBM Plex Mono',monospace;color:#ABA398}}
-.cap .dot{{width:14px;height:14px;border-radius:50%;background:#FFB95C;box-shadow:0 0 18px #FFB95C;flex:none}}
+.reelcap{{position:fixed;left:64px;right:64px;color:#F9F9F9;font-family:Epilogue,Arial,sans-serif;z-index:99}}
+.reelcap.top{{top:0;height:{band_top}px;display:flex;flex-direction:column;justify-content:center;gap:14px}}
+.reelcap.bot{{bottom:0;height:{H - band_top - stage_h}px;display:flex;align-items:center;justify-content:space-between;gap:24px}}
+.reelcap .k{{font:500 22px/1 'IBM Plex Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:#FFB95C}}
+.reelcap .h{{font:900 54px/1.02 Epilogue,Arial,sans-serif;letter-spacing:-.02em}}
+.reelcap .b{{font:500 26px/1.3 'IBM Plex Mono',monospace;color:#ABA398}}
+.reelcap .dot{{width:14px;height:14px;border-radius:50%;background:#FFB95C;box-shadow:0 0 18px #FFB95C;flex:none}}
 </style>"""
     caps = ""
     if not landscape:
         if top:
             k, _, h = top.partition("|")
-            caps += f'<div class="cap top"><div class="k">{k}</div><div class="h">{h}</div></div>'
+            caps += f'<div class="reelcap top"><div class="k">{k}</div><div class="h">{h}</div></div>'
         if bottom:
-            caps += f'<div class="cap bot"><div class="b">{bottom}</div><div class="dot"></div></div>'
+            caps += f'<div class="reelcap bot"><div class="b">{bottom}</div><div class="dot"></div></div>'
     return override + html + caps
 
 SEEK_JS = """(t)=>{document.getAnimations().forEach(a=>{try{a.pause();a.currentTime=t}catch(e){}});return document.getAnimations().length}"""
