@@ -171,6 +171,8 @@ table.phases{width:100%;border-collapse:collapse;font:400 24px/1.3 var(--f-displ
 .phases td:first-child{font-weight:700;color:var(--text);width:300px}
 .phases td:last-child{color:var(--text);font-weight:500}
 .phases td.trap{color:#9A3B1E}
+.phases code{font:500 22px/1 var(--f-mono);color:var(--text)}
+.note code{font:500 26px/1 var(--f-mono)}
 .phases .gt{font:400 18px/1.5 var(--f-mono);color:var(--muted)}
 
 .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
@@ -210,6 +212,7 @@ table.phases{width:100%;border-collapse:collapse;font:400 24px/1.3 var(--f-displ
 .on .pipe div::before{animation:lit 4.8s ease infinite;animation-delay:calc(var(--i,0) * 1.2s)}
 @keyframes lit{0%,4%{background:var(--ink);box-shadow:none}8%,14%{background:var(--amber);box-shadow:0 0 20px var(--amber)}20%,100%{background:var(--ink);box-shadow:none}}
 .pipe small{font:400 22px/1 var(--f-mono);color:var(--muted-d);text-align:right;font-variant-numeric:tabular-nums}
+.pipe code{font:400 22px/1 var(--f-mono);color:var(--paper);display:block;margin-top:12px}
 .pipe em{font-style:normal;font:400 22px/1.35 var(--f-mono);color:var(--amber);display:block;margin-top:10px}
 
 .thanks .big{font:900 300px/.85 var(--f-display);letter-spacing:-.05em;margin:0}
@@ -617,7 +620,7 @@ table.phases{width:100%;border-collapse:collapse;font:400 24px/1.3 var(--f-displ
   </section>
 
   <!-- 17 · Place au TP -->
-  <section class="slide dark" data-part="Partie 7 · Place au TP" data-notes="Présenter le sujet, les rôles et le dépôt avec ses branches de rattrapage. Conclure sur la question d'ouverture : à la fin, auriez-vous mergé votre PR ?">
+  <section class="slide dark" data-part="Partie 7 · Place au TP" data-notes="Présenter le sujet, les rôles et le dépôt avec ses branches de rattrapage. Annoncer que chaque temps a sa commande, embarquée dans le dépôt : /cadrer, /construire et /relire, /livrer, /capitaliser. Conclure sur la question d'ouverture : à la fin, auriez-vous mergé votre PR ?">
    <div class="halo" style="width:1300px;height:1300px;left:-500px;bottom:-800px;background:radial-gradient(circle,rgba(255,185,92,.3),transparent 62%)"></div>
    <div class="pad" style="gap:40px">
     <p class="eyebrow r" style="--i:0">Partie 7 · Place au TP</p>
@@ -633,10 +636,10 @@ table.phases{width:100%;border-collapse:collapse;font:400 24px/1.3 var(--f-displ
       <p class="lead r" style="--i:4;font-size:30px;color:var(--paper)">À la fin, auriez-vous mergé <span class="hi">votre</span> PR ?</p>
      </div>
      <div class="pipe r" style="--i:3;align-self:center">
-      <div style="--i:0"><span>Cadrer<em>(spécifier, planifier)</em></span></div>
-      <div style="--i:1"><span>Construire et prouver<em>(développer, tester, relire)</em></span></div>
-      <div style="--i:2"><span>Livrer et observer<em>(déployer, exploiter, retirer)</em></span></div>
-      <div style="--i:3"><span>Capitaliser<em>(retenir, partager)</em></span></div>
+      <div style="--i:0"><span>Cadrer<em>(spécifier, planifier)</em><code>/cadrer</code></span></div>
+      <div style="--i:1"><span>Construire et prouver<em>(développer, tester, relire)</em><code>/construire · /relire</code></span></div>
+      <div style="--i:2"><span>Livrer et observer<em>(déployer, exploiter, retirer)</em><code>/livrer</code></span></div>
+      <div style="--i:3"><span>Capitaliser<em>(retenir, partager)</em><code>/capitaliser</code></span></div>
      </div>
     </div>
    </div>
@@ -662,7 +665,7 @@ table.phases{width:100%;border-collapse:collapse;font:400 24px/1.3 var(--f-displ
     <p class="eyebrow r" style="--i:0">Partie 7 · Choisissez votre sujet</p>
     <h2 class="t r" style="--i:1">Deux terrains de jeu, au choix</h2>
     <div class="opts">
-     <div class="card r" style="--i:2"><span class="lbl">Votre projet</span><h3>Une fonctionnalité de votre backlog</h3><p>Passez-la par les quatre temps du cycle. Vérifiez d'abord ce que vous avez le droit d'envoyer à un modèle.</p></div>
+     <div class="card r" style="--i:2"><span class="lbl">Votre projet</span><h3>Une fonctionnalité de votre backlog</h3><p>Passez-la par les quatre temps du cycle : copiez <code>erp/.claude/commands/</code>. Vérifiez d'abord ce que vous avez le droit d'envoyer à un modèle.</p></div>
      <div class="card accent r" style="--i:3"><span class="lbl">Notre dépôt · prêt à l'emploi</span><h3>Un filtre booléen pour notre CVthèque</h3><p>Notre ERP RH stocke des profils. Ajoutez un filtre par requêtes booléennes, côté front et côté back.</p>
       <ul class="fields"><li>CV</li><li>Nom</li><li>Prénom</li><li>Localisation</li><li>Métier</li><li>Rémunération</li></ul>
       <pre class="code">git clone <span class="k">https://github.com/clubgenai/workshop-software-development-life-cycle.git</span>
@@ -673,6 +676,25 @@ cd erp &amp;&amp; npm install &amp;&amp; npm run dev
       <p class="query"><span>Exemple de requête</span>(métier:DevOps OR métier:SRE) AND NOT localisation:Paris</p>
      </div>
     </div>
+   </div>
+  </section>
+
+  <!-- Fil du TP -->
+  <section class="slide light" data-part="Partie 7 · Le fil du TP" data-notes="À laisser projetée pendant tout le TP. Chaque commande fait le travail puis s'arrête : la suivante refuse de démarrer tant qu'un humain n'a pas coché le gate. Le Reviewer lance /relire dans une session neuve, c'est ce qui l'empêche d'être juge et partie. Projet perso : copier erp/.claude/commands/ et adapter la section Preuve d'AGENTS.md.">
+   <div class="pad" style="gap:32px">
+    <p class="eyebrow r" style="--i:0">Partie 7 · Le fil du TP</p>
+    <h2 class="t r" style="--i:1">Une commande par temps, un gate humain à chaque arrêt</h2>
+    <table class="phases">
+     <thead class="r" style="--i:2"><tr><th>Temps</th><th>Commande</th><th>Qui</th><th>Gate humain</th><th>Livrable</th></tr></thead>
+     <tbody>
+      <tr class="r" style="--i:3"><td>Cadrer</td><td><code>/cadrer</code></td><td>PO + Dev</td><td>Intention et plan validés</td><td>Spec et scénarios</td></tr>
+      <tr class="r" style="--i:4"><td>Construire et prouver</td><td><code>/construire</code></td><td>Dev</td><td>—</td><td>Tests, code, preuve</td></tr>
+      <tr class="r" style="--i:5"><td>Construire et prouver</td><td><code>/relire</code></td><td>Reviewer, session neuve</td><td>PR acceptée</td><td>Relecture</td></tr>
+      <tr class="r" style="--i:6"><td>Livrer et observer</td><td><code>/livrer</code></td><td>Dev + Ops/PO</td><td>Livraison validée</td><td>Changelog, rollback, indicateurs</td></tr>
+      <tr class="r" style="--i:7"><td>Capitaliser</td><td><code>/capitaliser</code></td><td>Toute l'équipe</td><td>Règles choisies</td><td>Leçons dans AGENTS.md</td></tr>
+     </tbody>
+    </table>
+    <div class="note r" style="--i:8"><p>Le Reviewer lance <code>/relire</code> dans une session neuve. Seul un humain coche un gate.</p></div>
    </div>
   </section>
 
