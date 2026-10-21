@@ -261,6 +261,16 @@ table.phases{width:100%;border-collapse:collapse;font:400 24px/1.3 var(--f-displ
 .opts .query{margin:0;font:500 19px/1.45 var(--f-mono);color:var(--text)}
 .opts .query span{display:block;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber-deep);margin-bottom:4px}
 
+
+/* Préparation du poste */
+.setup-url{display:flex;align-items:center;gap:28px;flex-wrap:wrap;padding:34px 40px;background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
+.setup-url::after{content:"";position:absolute;right:-120px;top:-160px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(255,185,92,.32),transparent 65%);pointer-events:none}
+.setup-url .lbl{font:500 20px/1 var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--muted-d)}
+.setup-url .addr{font:500 76px/1 var(--f-mono);letter-spacing:-.01em;color:var(--amber);text-shadow:0 0 40px rgba(255,185,92,.4);position:relative;z-index:1}
+.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.steps3 .card{gap:14px}
+.steps3 .n{font:500 22px/1 var(--f-mono);color:var(--amber-deep)}
+
 /* ---------- Contrôles & notes ---------- */
 .controls{position:fixed;right:calc(max(16px,env(safe-area-inset-right,0px)) + 12px);bottom:calc(env(safe-area-inset-bottom,0px) + 14px);display:flex;gap:6px;z-index:50;transition:opacity .4s;background:rgba(22,19,15,.82);padding:6px;border:1px solid var(--ink-line);border-radius:12px;backdrop-filter:blur(8px)}
 .controls.idle{opacity:0}
@@ -602,6 +612,20 @@ table.phases{width:100%;border-collapse:collapse;font:400 24px/1.3 var(--f-displ
      <div class="card r" style="--i:3"><h3>Les PR géantes</h3><p>Deux mille lignes générées que personne ne relit vraiment.</p></div>
      <div class="card r" style="--i:4"><h3>L'agent juge et partie</h3><p>Le même agent écrit le code, les tests et valide le tout.</p></div>
      <div class="card r" style="--i:5"><h3>Les coûts que personne ne suit</h3><p>Le budget dérape sans qu'aucun chiffre ne remonte.</p></div>
+    </div>
+   </div>
+  </section>
+
+  <!-- Préparer son poste -->
+  <section class="slide light" data-part="Partie 7 · Préparer son poste" data-notes="Laisser quelques minutes pour que chacun prépare son poste avant de former les groupes. Vestiair est accessible sur le réseau de la salle. Rappeler que la clé API est personnelle : elle ne se partage pas et ne se commite jamais.">
+   <div class="pad" style="gap:44px">
+    <p class="eyebrow r" style="--i:0">Partie 7 · Avant de commencer</p>
+    <h2 class="t r" style="--i:1">Préparez votre poste</h2>
+    <div class="setup-url r" style="--i:2"><span class="lbl">Rendez-vous sur</span><span class="addr">vestiair.local</span></div>
+    <div class="steps3">
+     <div class="card r" style="--i:3"><span class="n">01</span><h3>Configurer Claude Code</h3><p>Installez-le et connectez-le en suivant le guide pas à pas.</p></div>
+     <div class="card r" style="--i:4"><span class="n">02</span><h3>Récupérer votre clé API</h3><p>Elle est personnelle : gardez-la pour vous et ne la commitez jamais.</p></div>
+     <div class="card r" style="--i:5"><span class="n">03</span><h3>Récupérer le dépôt GitHub</h3><p>Le lien du dépôt et les commandes pour lancer la CVthèque.</p></div>
     </div>
    </div>
   </section>
