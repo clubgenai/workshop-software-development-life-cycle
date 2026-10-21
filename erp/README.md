@@ -70,4 +70,18 @@ Ajouter un **filtre par requêtes booléennes**, côté front et côté back, pa
 
 Avant de lancer un agent, passez par le premier temps du cycle : écrivez la spec et les scénarios d'acceptation (syntaxe acceptée, priorité des opérateurs, champs, comparaisons sur la rémunération, accents et casse, requête invalide).
 
+### Le fil du TP : cinq commandes
+
+Lancez `claude` depuis `erp/`. Chaque commande s'arrête sur une décision humaine : la suivante refuse de démarrer tant que le gate précédent n'est pas coché, à la main, dans `specs/<feature>.md`.
+
+| Temps | Commande | Qui | Gate humain | Livrable |
+|---|---|---|---|---|
+| 1 · Cadrer | `/cadrer <besoin>` | PO + Dev | Intention et plan validés | `specs/<feature>.md` |
+| 2 · Construire et prouver | `/construire specs/<feature>.md` | Dev | — | Branche `feat/…`, tests `S#`, section Preuve |
+| 2 · Relire | `/relire specs/<feature>.md` | Reviewer, **session neuve** | PR acceptée | Section Relecture |
+| 3 · Livrer et observer | `/livrer specs/<feature>.md` | Dev + Ops/PO | Livraison validée | Changelog, rollback, indicateurs, PR |
+| 4 · Capitaliser | `/capitaliser specs/<feature>.md` | Toute l'équipe | Règles choisies | Section « Leçons du TP » d'`AGENTS.md` |
+
+Projet perso : copiez `erp/.claude/commands/` dans votre dépôt et adaptez la section « Preuve » de votre `AGENTS.md`/`CLAUDE.md` (les commandes n'y codent ni stack ni script).
+
 Pour régénérer les CV PDF : `python3 scripts/make_cvs.py data` (nécessite `reportlab`).

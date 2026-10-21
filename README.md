@@ -24,3 +24,4 @@ npm run dev
 ```
 
 L'ERP RH (la CVthèque) s'ouvre sur http://localhost:3000. Détails, API et données : [`erp/README.md`](erp/README.md).
+Le fil du TP en cinq commandes (`/cadrer` … `/capitaliser`) : [tableau](erp/README.md#le-fil-du-tp--cinq-commandes).
