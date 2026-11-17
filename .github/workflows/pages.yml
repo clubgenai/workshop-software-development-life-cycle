@@ -1,5 +1,6 @@
-# Publie le dossier presentation/ sur GitHub Pages à chaque push sur main.
-# Seul presentation/ est mis en ligne : docs/, social/ et le reste du dépôt ne sont pas publiés.
+# Construit la présentation Reveal.js (presentation/, via Vite) et publie presentation/dist sur GitHub Pages
+# à chaque push sur main. Seul le build de presentation/ est mis en ligne : docs/, social/ et le reste du dépôt
+# ne sont pas publiés.
 name: Publier la présentation
 
 on:
@@ -20,16 +21,31 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: presentation
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: presentation/package-lock.json
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: presentation/dist
+
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: presentation
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
